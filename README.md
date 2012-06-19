@@ -20,3 +20,7 @@ Then run the script
 $ bundle
 $ ruby button.rb
 ```
+
+Me pug bombing my teammates through the Big Red Button (you need hubot for that :)
+
+![alt pug bomb through big red button](http://f.cl.ly/items/3X0k1k0z350X0R3r2s12/Screen%20Shot%202012-06-19%20at%2015.30.21.png)
