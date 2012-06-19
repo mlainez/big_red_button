@@ -2,7 +2,7 @@ require 'dream_cheeky'
 require 'tinder'
 require 'yaml'
 
-class BigRedButton
+class Button
   def initialize
     @config   = load_campfire_config
     @campfire = campfire_authenticate
@@ -19,22 +19,34 @@ class BigRedButton
   end
 
   def room
-    @campfire.room
+    @campfire.find_room_by_name @config["room"]
   end
 
-  def start_loop
-    DreamCheeky::BigRedButton.run do
-      open do
-      end
+  def post_open_lid_message
+    room.speak @config["open_msg"]
+  end
 
-      close do
-      end
+  def post_close_lid_message
+    room.speak @config["close_msg"]
+  end
 
-      push do
-      end
-    end
+  def post_push_message
+    room.speak @config["push_msg"]
   end
 end
 
-button = BigRedButton.new
-button.start_loop
+@@button = Button.new
+
+DreamCheeky::BigRedButton.run do
+  open do
+    @@button.post_open_lid_message
+  end
+
+  close do
+    @@button.post_close_lid_message
+  end
+
+  push do
+    @@button.post_push_message
+  end
+end
