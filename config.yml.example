@@ -1,0 +1,4 @@
+campfire:
+  subdomain: YOUR_SUBDOMAIN
+  token: CAMPFIRE_API_TOKEN
+  room: CAMPFIRE_ROOM
