@@ -35,18 +35,18 @@ class Button
   end
 end
 
-@@button = Button.new
-
 DreamCheeky::BigRedButton.run do
+  button = Button.new
+
   open do
-    @@button.post_open_lid_message
+    button.post_open_lid_message
   end
 
   close do
-    @@button.post_close_lid_message
+    button.post_close_lid_message
   end
 
   push do
-    @@button.post_push_message
+    button.post_push_message
   end
 end
